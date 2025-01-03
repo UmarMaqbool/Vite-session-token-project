@@ -3,7 +3,7 @@ import "./App.css";
 
 const App = () => {
   // const env = "http://localhost:5002";
-  const env = 'https://beta.engageraise.com';
+  const env = "https://beta.engageraise.com";
 
   const [email, setEmail] = useState("umarmaqbool37@gmail.com");
   const [password, setPassword] = useState("Test1234");
@@ -15,13 +15,13 @@ const App = () => {
     if (env === "http://localhost:5002") {
       xApiKey =
         "U2FsdGVkX19dkFeUXdq6hjCEMRK3ZStmV5ZH13GRtACndTnSMuf2ex5yVMHfVuVT";
-      tokenUrl = "http://localhost:5002/api/auth/generate_session_token";
-      actionPageUrl = 'http://localhost:3000/donate/client-action-page-test';
+      tokenUrl = "http://localhost:5002/v1/auth/generate_session_token";
+      actionPageUrl = "http://localhost:3000/donate/client-action-page-test";
     } else {
       xApiKey =
         "U2FsdGVkX19XUJ8rCVkI+tv1bmmaTGXlB0OZXgTOF5hVw/GNKOG8ezLEvIPZGfnVApvbakj9FFpx7yZA7xiG2g==";
       tokenUrl =
-        "https://api.beta.engageraise.com/api/auth/generate_session_token";
+        "https://api.beta.engageraise.com/v1/auth/generate_session_token";
       actionPageUrl = `${env}/donate/test-action-page-1`;
     }
     try {
@@ -56,17 +56,14 @@ const App = () => {
       <div>
         <label>Email: </label>
         <input
-          type="email"
+          type='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div>
         <label>Password: </label>
-        <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <input value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <button onClick={handleRedirectWithApi}>Redirect with Token</button>
     </div>
